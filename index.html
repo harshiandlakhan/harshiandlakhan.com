@@ -79,6 +79,18 @@ body{background:var(--paper);padding:0;overflow-x:hidden}
 @media(prefers-reduced-motion:reduce){.js .art-layer{transform:none;opacity:1}}
 @media(prefers-reduced-motion:reduce){.js .scroll-piece,.js .scene-art.scroll-piece,.js .family.scroll-piece{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.js .reveal{opacity:1;transform:none}}
+/* Real transparent object layers, not rectangular portions of the scene. */
+body{overflow-x:clip}.invitation-scroll{overflow:clip}
+.couple-sequence{position:relative;padding-bottom:0;background:var(--paper)}
+.couple-scene{position:sticky;top:0;overflow:hidden;background:var(--paper)}
+.couple-art{overflow:hidden;background:radial-gradient(ellipse at 48% 30%,#f4d8b4 0%,#f5e6d1 75%);mask-image:linear-gradient(#000 72%,transparent)}
+.object-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;pointer-events:none;will-change:transform,opacity}
+.couple-layer{z-index:2;transform:translateY(var(--couple-y,-20%));opacity:var(--couple-opacity,0)}
+.lamps-layer{z-index:3;transform:translateX(var(--lamps-x,-65%));opacity:var(--lamps-opacity,0)}
+.foliage-layer{z-index:1;transform:translateX(var(--foliage-x,45%));opacity:var(--foliage-opacity,0)}
+@media(min-width:1000px){.couple-scene{height:100svh;min-height:750px;align-items:start}.couple-copy{padding-top:clamp(75px,12svh,140px);align-self:start}.couple-art{mask-image:linear-gradient(to right,#000 78%,transparent)}.couple-copy .together{margin-bottom:10px}.couple-copy .name{font-size:clamp(65px,5.7vw,90px)}}
+@media(max-width:999px){.couple-scene{top:min(0px,calc(100svh - 960px))}.couple-copy{padding-bottom:35px}}
+@media(prefers-reduced-motion:reduce){.couple-sequence{padding-bottom:0}.couple-scene{position:relative}.object-layer{transform:none!important;opacity:1!important}}
 #together-title:focus{outline:none}.js:not(.invitation-open) .footer,.js:not(.invitation-open) .design-note{visibility:hidden}
 </style>
 </head>
@@ -98,7 +110,7 @@ body{background:var(--paper);padding:0;overflow-x:hidden}
 <a class="skip-cover" href="#invitation">Read the invitation ↓</a>
 </section>
 <main class="invitation-scroll" id="invitation">
-  <section class="scene couple-scene" aria-labelledby="together-title"><div class="couple-art" role="img" aria-label="Illustrated saree and dhoti, brass lamps, flowers and banana leaves"><img class="art-layer art-left" src="assets/couple-straightened-v3.jpg" alt=""><img class="art-layer art-couple" src="assets/couple-straightened-v3.jpg" alt=""><img class="art-layer art-right" src="assets/couple-straightened-v3.jpg" alt=""></div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">Wedding date to be announced</div></div></section>
+  <div class="couple-sequence"><section class="scene couple-scene" aria-labelledby="together-title"><div class="couple-art" role="img" aria-label="Illustrated saree and dhoti, brass lamps, flowers and banana leaves"><img class="object-layer foliage-layer" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><img class="object-layer couple-layer" src="assets/layer-couple.png" alt="" width="1024" height="1536"><img class="object-layer lamps-layer" src="assets/layer-lamps.png" alt="" width="1024" height="1536"></div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">Wedding date to be announced</div></div></section></div>
   <section class="paper-section blessings"><div class="reveal"><div class="eyebrow">With the blessings of our families</div><h2 class="section-title">Two hearts. One forever.</h2><p>With full hearts and the love of our families, we invite you to be a part of our wedding celebration.</p><div class="ornament">✧</div><div class="families"><div class="family"><strong>Harshita’s family</strong><span>Parents’ names to be added</span></div><div class="family"><strong>Lakhan’s family</strong><span>Parents’ names to be added</span></div></div></div></section>
   <section class="scene wedding-scene" aria-labelledby="wedding-title"><img class="scene-art" src="assets/mandap-invitation.jpg" alt="Painted Indian wedding mandap with cream drapes, jasmine and marigold garlands, brass lamps, banana plants and a small illustrated couple" loading="lazy"><div class="wedding-copy reveal"><div class="eyebrow">Join us for our</div><h2 class="section-title" id="wedding-title">Wedding</h2><p class="ceremony-date">Date to be<br>announced</p><div class="ceremony-time">Muhurtham details coming soon</div><div class="ornament">✧</div><div class="venue-name">Our wedding venue</div><div class="venue-city">Venue name · City, India</div></div></section>
   <section class="paper-section events-section" id="celebrations"><div class="reveal"><div class="eyebrow">A little laughter. A lot of love.</div><h2 class="section-title">Our Celebrations</h2></div><div class="events"><article class="event reveal"><svg aria-hidden="true"><use href="#lotus"/></svg><h3>Haldi</h3><p>Turmeric, smiles & new beginnings<br>Date · Time · Venue to be announced</p></article><article class="event reveal"><h3>Mehendi</h3><p>A little henna, a lot of happiness<br>Date · Time · Venue to be announced</p></article><article class="event reveal"><h3>Sangeet</h3><p>Music, dancing & our favourite people<br>Date · Time · Venue to be announced</p></article><article class="event reveal"><h3>Reception</h3><p>A beautiful evening to celebrate together<br>Date · Time · Venue to be announced</p></article></div><div class="placeholder">Design preview · Events, dates, and venue details are placeholders.</div></section>
@@ -118,7 +130,7 @@ document.querySelectorAll('.reveal').forEach(el=>el.classList.remove('reveal'));
 const pieces=[...document.querySelectorAll('.scene-art,.couple-copy > *, .blessings .eyebrow,.blessings .section-title,.blessings p,.blessings .ornament,.family,.wedding-copy > *, .events-section .eyebrow,.events-section .section-title,.event > *, .venue-copy > *, .rsvp .reveal > *, .rsvp > div > *')];
 pieces.forEach((el,i)=>{el.classList.add('scroll-piece');el.style.setProperty('--delay',`${(i%3)*90}ms`)});
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('entered');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});
-function observePieces(){pieces.forEach(el=>observer.observe(el));observer.observe(document.querySelector('.couple-art'))}
+function observePieces(){pieces.forEach(el=>observer.observe(el));updateCutouts()}
 let opening=false;
 function enterInvitation(target='#invitation',animate=false){
  if(opening||document.body.classList.contains('invitation-open'))return;
@@ -138,8 +150,23 @@ cover.addEventListener('touchmove',event=>{if(touchStartY-event.touches[0].clien
 window.addEventListener('keydown',event=>{if(!document.body.classList.contains('invitation-open')&&['ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();openFromGesture()}});
 document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventListener('click',event=>{const target=link.getAttribute('href');if(target==='#welcome')return;event.preventDefault();clearTimeout(openingTimer);enterInvitation(target)}));
 document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;hint.textContent='Scroll or touch the seal to open';history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
-if(['#invitation','#celebrations','#venue','#rsvp'].includes(location.hash)){enterInvitation(location.hash)}
-let queued=false;function update(){document.querySelector('.progress').style.transform=`scaleX(${Math.min(1,window.scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))})`;queued=false}window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',update);update();
+
+const sequence=document.querySelector('.couple-sequence');
+const clamp=value=>Math.max(0,Math.min(1,value));
+function updateCutouts(){
+ const distance=innerHeight*.65;
+ sequence.style.height=`${document.querySelector(".couple-scene").offsetHeight+(motion.matches?0:distance)}px`;
+ const progress=motion.matches?1:clamp(.18+Math.max(0,-sequence.getBoundingClientRect().top)/distance*.82);
+ const ease=value=>1-Math.pow(1-clamp(value),3);
+ const couple=ease(progress/ .8),lamps=ease((progress-.12)/.88),foliage=ease((progress-.06)/.85);
+ sequence.style.setProperty('--couple-y',`${-24*(1-couple)}%`);
+ sequence.style.setProperty('--couple-opacity',clamp(progress*5));
+ sequence.style.setProperty('--lamps-x',`${-65*(1-lamps)}%`);
+ sequence.style.setProperty('--lamps-opacity',clamp((progress-.1)*5));
+ sequence.style.setProperty('--foliage-x',`${45*(1-foliage)}%`);
+ sequence.style.setProperty('--foliage-opacity',clamp((progress-.04)*5));
+}
+let queued=false;function update(){updateCutouts();document.querySelector('.progress').style.transform=`scaleX(${Math.min(1,window.scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))})`;queued=false}window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',update);update();if(['#invitation','#celebrations','#venue','#rsvp'].includes(location.hash)){enterInvitation(location.hash)}
 document.querySelectorAll('[data-dialog]').forEach(button=>button.addEventListener('click',()=>document.getElementById(button.dataset.dialog).showModal()));document.querySelectorAll('dialog').forEach(dialog=>{dialog.querySelectorAll('.close,.close-action').forEach(button=>button.addEventListener('click',()=>dialog.close()));dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}})});
 </script>
 </body>
