@@ -46,8 +46,40 @@ body{padding-top:0}.topbar{position:absolute;top:0;left:0;right:0;z-index:10;max
 }
 @media(min-width:600px) and (max-width:999px){.invitation-scroll,.footer,.design-note{max-width:760px}.paper-section{padding-left:16%;padding-right:16%}}
 @media(max-width:599px){body{background:var(--paper)}.invitation-scroll,.footer,.design-note{width:100%}.topbar .nav{gap:14px}.topbar .nav a{font-size:8px}.button{min-height:48px}.replay{min-height:44px}.close{min-width:44px;min-height:44px}.couple-copy{padding-left:7%;padding-right:7%}.name{font-size:clamp(47px,13vw,68px)}.family span{line-height:1.6}.cover{min-height:100svh}.opening-caption{bottom:14%}.skip-cover{padding:12px}}
+/* Keep the final responsive composition mounted behind the envelope. */
+body{background:var(--paper);padding:0;overflow-x:hidden}
+.invitation-scroll,.footer,.design-note{width:100%;max-width:none;box-shadow:none}
+.js:not(.invitation-open) .invitation-scroll,.js:not(.invitation-open) .footer,.js:not(.invitation-open) .design-note{display:block}
+.js:not(.invitation-open){overflow:hidden;height:100svh}
+.js:not(.invitation-open) .invitation-scroll{visibility:hidden}
+.cover{position:fixed;inset:0;z-index:20;height:100svh;min-height:0;background:transparent;pointer-events:auto}
+.topbar{position:fixed;z-index:30}
+.invitation-open .cover{display:block;pointer-events:none}
+.invitation-open .topbar{display:none}
+.invitation-open.envelope-away .cover{display:none}
+.inside-card{display:none}.stationery{background:transparent}
+.envelope-lower,.envelope-flap{background-size:cover;background-position:center 54%}
+.opened .envelope-lower{transform:translateY(110%);opacity:1;transition:transform 1.3s cubic-bezier(.65,0,.25,1)}
+.opened .envelope-flap{transform:translateY(-110%);transition:transform 1.3s cubic-bezier(.65,0,.25,1)}
+.opened .skip-cover{opacity:0}
+.seal-hit{left:calc(50% - 65px);top:calc(54% - 65px);width:130px;height:130px}
+.couple-art{position:relative;aspect-ratio:2/3;width:100%;margin-bottom:-54%;mask-image:linear-gradient(#000 75%,transparent);isolation:isolate}
+.art-layer{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;transition:transform 1.5s cubic-bezier(.16,1,.3,1),opacity .7s;pointer-events:none}
+.art-left{clip-path:polygon(0 0,22% 0,22% 100%,0 100%)}
+.art-couple{clip-path:polygon(21.9% 0,80.1% 0,80.1% 100%,21.9% 100%)}
+.art-right{clip-path:polygon(80% 0,100% 0,100% 100%,80% 100%)}
+.js .art-couple{transform:translateY(-100px);opacity:0;transition-delay:.45s}
+.js .art-left{transform:translateX(-90px);opacity:0;transition-delay:.65s}
+.js .art-right{transform:translateX(90px);opacity:0;transition-delay:.8s}
+.js .couple-art.entered .art-layer{transform:none;opacity:1}
+.js .scene-art.scroll-piece{transform:translateY(-45px);transition:opacity 1s,transform 1.3s;transform-origin:initial}
+.js .scene-art.scroll-piece.entered{transform:none}
+@media(min-width:1000px){.couple-art{margin:0;align-self:start;mask-image:linear-gradient(to right,#000 75%,transparent)}.couple-scene{grid-template-columns:54% 46%}}
+@media(min-aspect-ratio:1/1){.envelope-lower,.envelope-flap{background-image:url('assets/envelope-wide.jpg');background-position:center 54%}.envelope-flap{clip-path:polygon(0 0,100% 0,100% 0,50% 54%,0 0)}.envelope-lower{clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%)}}
+@media(prefers-reduced-motion:reduce){.js .art-layer{transform:none;opacity:1}}
 @media(prefers-reduced-motion:reduce){.js .scroll-piece,.js .scene-art.scroll-piece,.js .family.scroll-piece{opacity:1;transform:none}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}.js .reveal{opacity:1;transform:none}}
+#together-title:focus{outline:none}.js:not(.invitation-open) .footer,.js:not(.invitation-open) .design-note{visibility:hidden}
 </style>
 </head>
 <body>
@@ -61,12 +93,12 @@ body{padding-top:0}.topbar{position:absolute;top:0;left:0;right:0;z-index:10;max
 <div class="envelope-flap" aria-hidden="true"></div>
 <div class="envelope-label"><span class="eyebrow">The wedding of</span><p>Harshita & Lakhan</p></div>
 <button class="seal-hit" aria-label="Open our invitation"></button>
-<div class="opening-caption" aria-live="polite">Touch the seal to open</div>
+<div class="opening-caption" aria-live="polite">Scroll or touch the seal to open</div>
 </div>
 <a class="skip-cover" href="#invitation">Read the invitation ↓</a>
 </section>
 <main class="invitation-scroll" id="invitation">
-  <section class="scene couple-scene" aria-labelledby="together-title"><img class="scene-art" src="assets/couple-straightened-v3.jpg" alt="Elegant wedding-card illustration of crimson saree and ivory dhoti hems with small stylized feet, gold anklets, brass lamps, banana leaves and flowers"><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">Wedding date to be announced</div></div></section>
+  <section class="scene couple-scene" aria-labelledby="together-title"><div class="couple-art" role="img" aria-label="Illustrated saree and dhoti, brass lamps, flowers and banana leaves"><img class="art-layer art-left" src="assets/couple-straightened-v3.jpg" alt=""><img class="art-layer art-couple" src="assets/couple-straightened-v3.jpg" alt=""><img class="art-layer art-right" src="assets/couple-straightened-v3.jpg" alt=""></div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">Wedding date to be announced</div></div></section>
   <section class="paper-section blessings"><div class="reveal"><div class="eyebrow">With the blessings of our families</div><h2 class="section-title">Two hearts. One forever.</h2><p>With full hearts and the love of our families, we invite you to be a part of our wedding celebration.</p><div class="ornament">✧</div><div class="families"><div class="family"><strong>Harshita’s family</strong><span>Parents’ names to be added</span></div><div class="family"><strong>Lakhan’s family</strong><span>Parents’ names to be added</span></div></div></div></section>
   <section class="scene wedding-scene" aria-labelledby="wedding-title"><img class="scene-art" src="assets/mandap-invitation.jpg" alt="Painted Indian wedding mandap with cream drapes, jasmine and marigold garlands, brass lamps, banana plants and a small illustrated couple" loading="lazy"><div class="wedding-copy reveal"><div class="eyebrow">Join us for our</div><h2 class="section-title" id="wedding-title">Wedding</h2><p class="ceremony-date">Date to be<br>announced</p><div class="ceremony-time">Muhurtham details coming soon</div><div class="ornament">✧</div><div class="venue-name">Our wedding venue</div><div class="venue-city">Venue name · City, India</div></div></section>
   <section class="paper-section events-section" id="celebrations"><div class="reveal"><div class="eyebrow">A little laughter. A lot of love.</div><h2 class="section-title">Our Celebrations</h2></div><div class="events"><article class="event reveal"><svg aria-hidden="true"><use href="#lotus"/></svg><h3>Haldi</h3><p>Turmeric, smiles & new beginnings<br>Date · Time · Venue to be announced</p></article><article class="event reveal"><h3>Mehendi</h3><p>A little henna, a lot of happiness<br>Date · Time · Venue to be announced</p></article><article class="event reveal"><h3>Sangeet</h3><p>Music, dancing & our favourite people<br>Date · Time · Venue to be announced</p></article><article class="event reveal"><h3>Reception</h3><p>A beautiful evening to celebrate together<br>Date · Time · Venue to be announced</p></article></div><div class="placeholder">Design preview · Events, dates, and venue details are placeholders.</div></section>
@@ -86,16 +118,26 @@ document.querySelectorAll('.reveal').forEach(el=>el.classList.remove('reveal'));
 const pieces=[...document.querySelectorAll('.scene-art,.couple-copy > *, .blessings .eyebrow,.blessings .section-title,.blessings p,.blessings .ornament,.family,.wedding-copy > *, .events-section .eyebrow,.events-section .section-title,.event > *, .venue-copy > *, .rsvp .reveal > *, .rsvp > div > *')];
 pieces.forEach((el,i)=>{el.classList.add('scroll-piece');el.style.setProperty('--delay',`${(i%3)*90}ms`)});
 const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('entered');observer.unobserve(entry.target)}}),{threshold:.08,rootMargin:'0px 0px -6% 0px'});
-function observePieces(){pieces.forEach(el=>observer.observe(el))}
-function enterInvitation(target='#invitation'){
+function observePieces(){pieces.forEach(el=>observer.observe(el));observer.observe(document.querySelector('.couple-art'))}
+let opening=false;
+function enterInvitation(target='#invitation',animate=false){
+ if(opening||document.body.classList.contains('invitation-open'))return;
+ opening=true;seal.disabled=true;
  document.body.classList.add('invitation-open');
+ cover.classList.add('opened');
  document.querySelector(target)?.scrollIntoView({behavior:'instant'});
- observePieces();
- document.querySelector('#together-title').focus({preventScroll:true});
+ requestAnimationFrame(()=>requestAnimationFrame(observePieces));
+ openingTimer=setTimeout(()=>{document.body.classList.add('envelope-away');opening=false;document.querySelector('#together-title').focus({preventScroll:true})},animate&&!motion.matches?1350:0);
 }
-seal.addEventListener('click',()=>{cover.classList.add('opened');seal.disabled=true;hint.textContent='Opening your invitation…';openingTimer=setTimeout(()=>enterInvitation(),motion.matches?0:1300)});
+function openFromGesture(){enterInvitation('#invitation',true)}
+seal.addEventListener('click',openFromGesture);
+window.addEventListener('wheel',event=>{if(!document.body.classList.contains('envelope-away')&&event.deltaY>0){event.preventDefault();openFromGesture()}},{passive:false});
+let touchStartY=0;
+cover.addEventListener('touchstart',event=>{touchStartY=event.touches[0].clientY},{passive:true});
+cover.addEventListener('touchmove',event=>{if(touchStartY-event.touches[0].clientY>20){event.preventDefault();openFromGesture()}},{passive:false});
+window.addEventListener('keydown',event=>{if(!document.body.classList.contains('invitation-open')&&['ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();openFromGesture()}});
 document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventListener('click',event=>{const target=link.getAttribute('href');if(target==='#welcome')return;event.preventDefault();clearTimeout(openingTimer);enterInvitation(target)}));
-document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open');cover.classList.remove('opened');seal.disabled=false;hint.textContent='Touch the seal to open';history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
+document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;hint.textContent='Scroll or touch the seal to open';history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
 if(['#invitation','#celebrations','#venue','#rsvp'].includes(location.hash)){enterInvitation(location.hash)}
 let queued=false;function update(){document.querySelector('.progress').style.transform=`scaleX(${Math.min(1,window.scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))})`;queued=false}window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',update);update();
 document.querySelectorAll('[data-dialog]').forEach(button=>button.addEventListener('click',()=>document.getElementById(button.dataset.dialog).showModal()));document.querySelectorAll('dialog').forEach(dialog=>{dialog.querySelectorAll('.close,.close-action').forEach(button=>button.addEventListener('click',()=>dialog.close()));dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}})});

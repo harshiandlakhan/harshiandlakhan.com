@@ -22,3 +22,6 @@ The layout uses one 720px maximum-width portrait invitation, with continuous pea
 - `couple-straightened-v2.jpg` is the active version. Built-in image edit prompt: Make a tiny localized geometric correction to the existing dhoti so its long gold stripe and outer side run parallel to the image vertical border, with level gold/green hem. Preserve the same saree, two touching feet, anklet, lamps, flowers, foliage, paper, composition and colors.
 
 - `couple-straightened-v3.jpg` is now active. Built-in image edit prompt: Rotate only the woman's existing saree/leg a few degrees clockwise around her toe contact point to align the long garment edges with the image's vertical border. Preserve the approved dhoti, same foot pose, anklet, saree pattern, background, flowers and lamps.
+
+## Responsive opening revision
+`envelope-wide.jpg` was generated with the built-in image tool: photorealistic 16:9 peach cotton-paper Indian wedding envelope, gold triangular flap, round burgundy lotus seal centered at 54% height, gold tassel and jasmine/marigold/banana-leaf corners, no lettering. Desktop uses this landscape artwork with proportional cover sizing; mobile retains the portrait original. The original approved couple artwork is preserved and partitioned into CSS-masked motion layers, entering from top and sides.
