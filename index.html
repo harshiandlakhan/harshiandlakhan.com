@@ -104,6 +104,15 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 .envelope-foliage{clip-path:inset(0 0 0 55%);mask-image:linear-gradient(transparent,#000 24%,#000 85%,transparent);height:90%;width:auto;object-fit:contain}.envelope-lamps{mask-image:linear-gradient(transparent,#000 8%,#000 88%,transparent)}
 #together-title:focus{outline:none}.js:not(.invitation-open) .footer,.js:not(.invitation-open) .design-note{visibility:hidden}
 @media(min-width:1000px){.topbar .monogram{display:none}.topbar{justify-content:flex-end}}
+/* Approved full-screen ivory stationery, independently composed for each orientation. */
+.envelope-lower,.envelope-flap{background-image:url('assets/envelope-ivory-mobile.jpg');background-size:cover;background-position:center 54%}
+.envelope-flap{clip-path:polygon(0 0,100% 0,50% 54.2%)}
+.envelope-lower{clip-path:polygon(0 0,50% 54%,100% 0,100% 100%,0 100%)}
+.envelope-label{top:19%;left:15%;right:15%}.envelope-label p{font-family:var(--script);font-size:clamp(42px,6vw,82px);line-height:1.2;color:var(--ink);margin:20px 0}
+.opening-caption{bottom:13%;left:27%;right:27%;font-size:17px}.cover>.skip-cover{bottom:5%}
+@media(min-aspect-ratio:1/1){.envelope-lower,.envelope-flap{background-image:url('assets/envelope-ivory-web.jpg')}.envelope-label{top:19%;left:20%;right:20%}.opening-caption{bottom:10%}}
+@media(max-width:599px){.envelope-label{left:12%;right:12%;top:23%}.envelope-label p{font-size:clamp(37px,9.8vw,54px)}.envelope-label .eyebrow{font-size:8px;letter-spacing:2px}.opening-caption{bottom:18%;font-size:15px;left:24%;right:24%}.cover>.skip-cover{bottom:9%;font-size:8px}.topbar .monogram{display:none}.topbar{justify-content:flex-end}.topbar .nav{padding:5px 9px;background:#fff8e9b8;border-radius:2px}}
+@media(max-aspect-ratio:1/1){.envelope-lower,.envelope-flap{background-position:center 50%}.envelope-flap{clip-path:polygon(0 0,100% 0,100% 25%,50% 50.2%,0 25%)}.envelope-lower{clip-path:polygon(0 25%,50% 50%,100% 25%,100% 100%,0 100%)}.seal-hit{top:calc(50% - 65px)}}
 </style>
 </head>
 <body>
@@ -113,7 +122,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 <section class="cover" id="welcome" aria-label="Open our wedding invitation">
 <div class="stationery">
 <div class="inside-card" aria-hidden="true"></div>
-<div class="envelope-lower" aria-hidden="true"><img class="envelope-lamps" src="assets/layer-lamps.png" alt=""><img class="envelope-foliage" src="assets/layer-foliage.png" alt=""></div>
+<div class="envelope-lower" aria-hidden="true"></div>
 <div class="envelope-flap" aria-hidden="true"></div>
 <div class="envelope-label"><span class="eyebrow">The wedding of</span><p>Harshita & Lakhan</p></div>
 <button class="seal-hit" aria-label="Open our invitation"></button>
