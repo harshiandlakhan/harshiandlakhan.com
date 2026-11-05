@@ -125,6 +125,14 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 .accommodations{padding:70px max(8%,calc((100% - 1040px)/2))}.hotels{display:grid;grid-template-columns:1fr 1fr;gap:0 50px;margin:40px 0;text-align:left}.hotel{padding:28px 0;border-top:1px solid #b9986c66}.hotel h3{font:500 27px/1.25 var(--serif);margin:0 0 18px;max-width:390px}.hotel a{font-size:12px;text-underline-offset:5px;display:inline-block;padding:8px 0}.stay-note{max-width:650px;margin:auto}
 @media(max-width:999px){.events{grid-template-columns:1fr;gap:12px}.event{max-width:500px;width:100%;margin:auto}.hotels{gap:0 28px}}
 @media(max-width:599px){.hotels{grid-template-columns:1fr}.venue-map{height:320px}.nav{gap:10px!important}.topbar{padding:0 12px}.topbar .nav a{letter-spacing:.5px}.event h3{font-size:38px}.wedding-copy{left:10%;right:10%}.ceremony-date{font-size:22px}.ceremony-time{font-size:10px}}
+/* Countdown sits below the complete couple scene on every screen size. */
+.wedding-countdown{background:var(--paper);text-align:center;padding:54px 24px 36px}
+.countdown-clock{display:flex;justify-content:center;gap:clamp(24px,5vw,70px);margin:25px auto 20px}
+.countdown-clock[hidden],.countdown-message[hidden]{display:none}
+.countdown-clock span{display:block;font:500 clamp(38px,5vw,62px)/1.1 var(--serif);font-variant-numeric:tabular-nums;min-width:2ch}
+.countdown-clock small{display:block;font:9px var(--sans);text-transform:uppercase;letter-spacing:1.5px;margin-top:10px}
+.countdown-date{font:12px/1.8 var(--sans);margin:20px 0 0}.countdown-message{font:38px var(--script);margin:24px 0}
+@media(max-width:480px){.wedding-countdown{padding:42px 18px 24px}.countdown-clock{gap:24px}.countdown-date{font-size:10px}}
 </style>
 </head>
 <body>
@@ -144,6 +152,17 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 </section>
 <main class="invitation-scroll" id="invitation">
   <div class="couple-sequence"><section class="scene couple-scene" aria-labelledby="together-title"><div class="couple-art" role="img" aria-label="Illustrated saree and dhoti, brass lamps, flowers and banana leaves"><img class="object-layer foliage-layer foliage-left" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><img class="object-layer foliage-layer foliage-right" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><div class="feet-shadow" aria-hidden="true"></div><img class="object-layer couple-layer" src="assets/layer-couple.png" alt="" width="1024" height="1536"><img class="object-layer lamps-layer" src="assets/layer-lamps.png" alt="" width="1024" height="1536"></div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">April 11, 2027 · Fairfield, California</div></div></section></div>
+  <section class="wedding-countdown" aria-labelledby="countdown-heading">
+    <div class="eyebrow" id="countdown-heading">Counting down to our forever</div>
+    <div class="countdown-clock" role="timer" aria-label="Time until our wedding" aria-live="off" hidden>
+      <div><span data-countdown="days">00</span><small>Days</small></div>
+      <div><span data-countdown="hours">00</span><small>Hours</small></div>
+      <div><span data-countdown="minutes">00</span><small>Minutes</small></div>
+      <div><span data-countdown="seconds">00</span><small>Seconds</small></div>
+    </div>
+    <p class="countdown-message" hidden>Our forever begins today.</p>
+    <p class="countdown-date"><time datetime="2027-04-11T11:30:00-07:00">April 11, 2027 · 11:30 AM</time> · California time</p>
+  </section>
   <section class="paper-section blessings"><div class="reveal"><div class="eyebrow">With the blessings of our families</div><h2 class="section-title">Two hearts. One forever.</h2><p>With full hearts and the love of our families, we invite you to be a part of our wedding celebration.</p><div class="ornament">✧</div><div class="families"><div class="family"><strong>Harshita’s family</strong></div><div class="family"><strong>Lakhan’s family</strong></div></div></div></section>
   <section class="scene wedding-scene" aria-labelledby="wedding-title"><img class="scene-art" src="assets/mandap-invitation.jpg" alt="Painted Indian wedding mandap with cream drapes, jasmine and marigold garlands, brass lamps, banana plants and a small illustrated couple" loading="lazy"><div class="wedding-copy reveal"><div class="eyebrow">Join us for our</div><h2 class="section-title" id="wedding-title">Wedding</h2><p class="ceremony-date">April 11, 2027</p><div class="ceremony-time">11:30 AM · Muhurtham</div><div class="ornament">✧</div><div class="venue-name">Suisun Valley Inn</div><div class="venue-city">Fairfield, California</div></div></section>
   <section class="paper-section events-section" id="celebrations"><div class="eyebrow">Three days of love & celebration</div><h2 class="section-title">Our Celebrations</h2><p>April 9–11, 2027 · Suisun Valley Inn</p><div class="events">
@@ -163,6 +182,27 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 <dialog class="dialog" id="rsvp-dialog" aria-labelledby="rsvp-title"><button class="close" aria-label="Close dialog">×</button><svg class="lotus" aria-hidden="true" style="margin-bottom:24px"><use href="#lotus"/></svg><h2 id="rsvp-title">A place for you.</h2><p>Our RSVP form is coming soon. You’ll be able to let us know which days you can join us.</p><p>We’re not collecting responses just yet. Please check back soon.</p><button class="button close-action">Back to the invitation</button></dialog>
 <script>
 document.body.classList.add('js');
+// April is daylight saving time in California; the explicit offset keeps this
+// countdown identical for guests in every timezone.
+const weddingTime=Date.parse('2027-04-11T11:30:00-07:00');
+const countdownClock=document.querySelector('.countdown-clock');
+let countdownInterval;
+function updateCountdown(){
+ const remaining=Math.max(0,Math.floor((weddingTime-Date.now())/1000));
+ if(remaining===0){
+  countdownClock.hidden=true;
+  const message=document.querySelector('.countdown-message');
+  message.hidden=false;
+  message.textContent=Date.now()<Date.parse('2027-04-12T00:00:00-07:00')?'Our forever begins today.':'Our forever has begun.';
+  return;
+ }
+ const values={days:Math.floor(remaining/86400),hours:Math.floor(remaining/3600)%24,minutes:Math.floor(remaining/60)%60,seconds:remaining%60};
+ for(const [unit,value] of Object.entries(values))document.querySelector(`[data-countdown="${unit}"]`).textContent=String(value).padStart(2,'0');
+ countdownClock.hidden=false;
+ document.querySelector('.countdown-message').hidden=true;
+}
+updateCountdown();
+countdownInterval=setInterval(updateCountdown,1000);
 const motion=window.matchMedia('(prefers-reduced-motion: reduce)'),cover=document.querySelector('.cover'),seal=document.querySelector('.seal-hit'),hint=document.querySelector('.opening-caption');
 let openingTimer;
 const invitation=document.querySelector('#invitation');
