@@ -207,6 +207,7 @@ function openRsvpLink(){
 }
 window.addEventListener('message',event=>{
  if(event.origin!==rsvpOrigin||event.source!==rsvpFrame.contentWindow)return;
+ if(event.data?.type==='wedding-rsvp-saved')requestAnimationFrame(()=>rsvpFrame.scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'center'}));
  if(event.data?.type==='wedding-rsvp-height'&&Number.isFinite(event.data.height))rsvpFrame.style.height=Math.min(15000,Math.max(380,event.data.height+8))+'px';
 });
 rsvpFrame.addEventListener('load',()=>{if(rsvpToken)rsvpFrame.contentWindow.postMessage({type:'wedding-rsvp-token',token:rsvpToken},rsvpOrigin)});
