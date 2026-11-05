@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#faf6ec">
-<meta name="description" content="A wedding invitation for Harshita Vallamsetty and Lakhan Saiteja Kamireddy. April 9–11, 2027 at Suisun Valley Inn in Fairfield, California.">
+<meta name="description" content="A wedding invitation for Harshita Vallamsetty and Lakhan Saiteja Kamireddy. April 9–11, 2027 at Suisun Valley Inn in Fairfield, California, USA.">
 <title>Harshita & Lakhan · Together, a beautiful beginning</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@400;500&family=Great+Vibes&display=swap');
@@ -133,6 +133,15 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 .countdown-clock small{display:block;font:9px var(--sans);text-transform:uppercase;letter-spacing:1.5px;margin-top:10px}
 .countdown-date{font:12px/1.8 var(--sans);margin:20px 0 0}.countdown-message{font:38px var(--script);margin:24px 0}
 @media(max-width:480px){.wedding-countdown{padding:42px 18px 24px}.countdown-clock{gap:24px}.countdown-date{font-size:10px}}
+/* Tear-off calendar pages for the live countdown. */
+.countdown-clock{gap:clamp(12px,2.4vw,30px);margin-top:30px;padding-bottom:8px}
+.countdown-clock>div{position:relative;display:flex;flex-direction:column-reverse;justify-content:flex-end;width:clamp(72px,12vw,120px);min-height:122px;background:#fffdf7;border:1px solid #d9cbb7;border-radius:7px;box-shadow:0 3px 0 -1px #fffdf7,0 4px 0 #d9cbb7,0 7px 0 -1px #fffdf7,0 8px 0 #d9cbb7,0 12px 20px #68483b0d}
+.countdown-clock>div:before,.countdown-clock>div:after{content:'';position:absolute;top:-7px;width:5px;height:14px;border-radius:4px;background:var(--gold);border:1px solid #8c6c40;z-index:1}
+.countdown-clock>div:before{left:20%}.countdown-clock>div:after{right:20%}
+.countdown-clock small{margin:0;padding:12px 4px 10px;background:var(--wine);color:#fffaf0;border-radius:6px 6px 0 0;font-size:9px;letter-spacing:1.4px}
+.countdown-clock span{padding:13px 8px 17px;font-size:clamp(36px,4.5vw,54px);line-height:1.1;min-width:0}
+@media(max-width:480px){.countdown-clock{gap:12px}.countdown-clock>div{width:72px;min-height:106px}.countdown-clock small{font-size:8px;letter-spacing:.8px}.countdown-clock span{padding:12px 4px 14px;font-size:36px}}
+@media(max-width:350px){.countdown-clock{gap:8px}.countdown-clock>div{width:64px}}
 </style>
 </head>
 <body>
@@ -151,7 +160,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 <a class="skip-cover" href="#invitation">Read the invitation ↓</a>
 </section>
 <main class="invitation-scroll" id="invitation">
-  <div class="couple-sequence"><section class="scene couple-scene" aria-labelledby="together-title"><div class="couple-art" role="img" aria-label="Illustrated saree and dhoti, brass lamps, flowers and banana leaves"><img class="object-layer foliage-layer foliage-left" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><img class="object-layer foliage-layer foliage-right" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><div class="feet-shadow" aria-hidden="true"></div><img class="object-layer couple-layer" src="assets/layer-couple.png" alt="" width="1024" height="1536"><img class="object-layer lamps-layer" src="assets/layer-lamps.png" alt="" width="1024" height="1536"></div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">April 11, 2027 · Fairfield, California</div></div></section></div>
+  <div class="couple-sequence"><section class="scene couple-scene" aria-labelledby="together-title"><div class="couple-art" role="img" aria-label="Illustrated saree and dhoti, brass lamps, flowers and banana leaves"><img class="object-layer foliage-layer foliage-left" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><img class="object-layer foliage-layer foliage-right" src="assets/layer-foliage.png" alt="" width="1024" height="1536"><div class="feet-shadow" aria-hidden="true"></div><img class="object-layer couple-layer" src="assets/layer-couple.png" alt="" width="1024" height="1536"><img class="object-layer lamps-layer" src="assets/layer-lamps.png" alt="" width="1024" height="1536"></div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name">Harshita</div><div class="surname">Vallamsetty</div><div class="amp">&</div><div class="name">Lakhan Saiteja</div><div class="surname">Kamireddy</div><div class="date">April 11, 2027 · Fairfield, California, USA</div></div></section></div>
   <section class="wedding-countdown" aria-labelledby="countdown-heading">
     <div class="eyebrow" id="countdown-heading">Counting down to our forever</div>
     <div class="countdown-clock" role="timer" aria-label="Time until our wedding" aria-live="off" hidden>
@@ -164,7 +173,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
     <p class="countdown-date"><time datetime="2027-04-11T11:30:00-07:00">April 11, 2027 · 11:30 AM</time> · Pacific Time</p>
   </section>
   <section class="paper-section blessings"><div class="reveal"><div class="eyebrow">With the blessings of our families</div><h2 class="section-title">Two hearts. One forever.</h2><p>With full hearts and the love of our families, we invite you to be a part of our wedding celebration.</p><div class="ornament">✧</div><div class="families"><div class="family"><strong>Harshita’s family</strong></div><div class="family"><strong>Lakhan’s family</strong></div></div></div></section>
-  <section class="scene wedding-scene" aria-labelledby="wedding-title"><img class="scene-art" src="assets/mandap-invitation.jpg" alt="Painted Indian wedding mandap with cream drapes, jasmine and marigold garlands, brass lamps, banana plants and a small illustrated couple" loading="lazy"><div class="wedding-copy reveal"><div class="eyebrow">Join us for our</div><h2 class="section-title" id="wedding-title">Wedding</h2><p class="ceremony-date">April 11, 2027</p><div class="ceremony-time">11:30 AM · Muhurtham</div><div class="ornament">✧</div><div class="venue-name">Suisun Valley Inn</div><div class="venue-city">Fairfield, California</div></div></section>
+  <section class="scene wedding-scene" aria-labelledby="wedding-title"><img class="scene-art" src="assets/mandap-invitation.jpg" alt="Painted Indian wedding mandap with cream drapes, jasmine and marigold garlands, brass lamps, banana plants and a small illustrated couple" loading="lazy"><div class="wedding-copy reveal"><div class="eyebrow">Join us for our</div><h2 class="section-title" id="wedding-title">Wedding</h2><p class="ceremony-date">April 11, 2027</p><div class="ceremony-time">11:30 AM · Muhurtham</div><div class="ornament">✧</div><div class="venue-name">Suisun Valley Inn</div><div class="venue-city">Fairfield, California, USA</div></div></section>
   <section class="paper-section events-section" id="celebrations"><div class="eyebrow">Three days of love & celebration</div><h2 class="section-title">Our Celebrations</h2><p>April 9–11, 2027 · Suisun Valley Inn</p><div class="events">
 <article class="event"><div class="eyebrow">Friday · April 9</div><h3>Sangeet</h3><dl><div><dt>Music & dancing</dt><dd>4:30 PM</dd></div></dl></article>
 <article class="event"><div class="eyebrow">Saturday · April 10</div><h3>A day of traditions</h3><dl><div><dt>Pellikuthuru</dt><dd>9:00 AM</dd></div><div><dt>Pellikoduku</dt><dd>10:00 AM</dd></div><div><dt>Engagement</dt><dd>11:00 AM</dd></div><div><dt>Haldi</dt><dd>3:00 PM</dd></div></dl></article>
@@ -178,7 +187,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 </div><p class="stay-note">These links are set to check in April 9 and check out April 11. If you’re staying after the wedding, please adjust your checkout date when booking.</p></section>
   <section class="paper-section rsvp" id="rsvp"><div class="reveal"><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><div class="eyebrow" style="margin-top:24px">The celebration is sweeter with you</div><h2 class="section-title">Save a little joy for us.</h2><p>It would mean the world to have you with us as we begin our forever.</p><button class="button" data-dialog="rsvp-dialog">Kindly RSVP <span>↗</span></button><p class="small">RSVP details coming soon</p></div></section>
 </main>
-<footer class="footer"><span class="signature">Harshita & Lakhan</span><button class="replay">Open again ↑</button></footer><div class="design-note">April 9–11, 2027 · Suisun Valley Inn · Fairfield, California</div>
+<footer class="footer"><span class="signature">Harshita & Lakhan</span><button class="replay">Open again ↑</button></footer><div class="design-note">April 9–11, 2027 · Suisun Valley Inn · Fairfield, California, USA</div>
 <dialog class="dialog" id="rsvp-dialog" aria-labelledby="rsvp-title"><button class="close" aria-label="Close dialog">×</button><svg class="lotus" aria-hidden="true" style="margin-bottom:24px"><use href="#lotus"/></svg><h2 id="rsvp-title">A place for you.</h2><p>Our RSVP form is coming soon. You’ll be able to let us know which days you can join us.</p><p>We’re not collecting responses just yet. Please check back soon.</p><button class="button close-action">Back to the invitation</button></dialog>
 <script>
 document.body.classList.add('js');
