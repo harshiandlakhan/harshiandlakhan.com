@@ -142,6 +142,8 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 .countdown-clock span{padding:13px 8px 17px;font-size:clamp(36px,4.5vw,54px);line-height:1.1;min-width:0}
 @media(max-width:480px){.countdown-clock{gap:12px}.countdown-clock>div{width:72px;min-height:106px}.countdown-clock small{font-size:8px;letter-spacing:.8px}.countdown-clock span{padding:12px 4px 14px;font-size:36px}}
 @media(max-width:350px){.countdown-clock{gap:8px}.countdown-clock>div{width:64px}}
+/* The form is hosted by the private backend; credentials stay on Cloudflare. */
+.rsvp{padding:75px max(6%,calc((100% - 800px)/2)) 85px}.rsvp iframe{display:block;width:100%;border:0;background:var(--paper);margin:25px auto 0;min-height:380px}.rsvp-help{font:12px var(--sans)!important;text-align:center;overflow-wrap:anywhere}
 </style>
 </head>
 <body>
@@ -185,12 +187,31 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 <article class="hotel"><h3>Staybridge Suites Fairfield Napa Valley Area</h3><a href="https://www.expedia.com/Fairfield-Hotels-Staybridge-Suites-Fairfield-Napa-Valley-Area.h1705879.Hotel-Information?chkin=2027-04-09&amp;chkout=2027-04-11&amp;x_pwa=1" target="_blank" rel="noopener noreferrer">View on Expedia <span aria-hidden="true">↗</span></a></article>
 <article class="hotel"><h3>Homewood Suites by Hilton Fairfield–Napa Valley Area</h3><a href="https://www.expedia.com/Fairfield-Hotels-Homewood-Suites-By-Hilton-Fairfield-Napa-Valley-Area.h1695928.Hotel-Information?chkin=2027-04-09&amp;chkout=2027-04-11&amp;x_pwa=1" target="_blank" rel="noopener noreferrer">View on Expedia <span aria-hidden="true">↗</span></a></article>
 </div><p class="stay-note">These links are set to check in April 9 and check out April 11. If you’re staying after the wedding, please adjust your checkout date when booking.</p></section>
-  <section class="paper-section rsvp" id="rsvp"><div class="reveal"><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><div class="eyebrow" style="margin-top:24px">The celebration is sweeter with you</div><h2 class="section-title">Save a little joy for us.</h2><p>It would mean the world to have you with us as we begin our forever.</p><button class="button" data-dialog="rsvp-dialog">Kindly RSVP <span>↗</span></button><p class="small">RSVP details coming soon</p></div></section>
+  <section class="paper-section rsvp" id="rsvp"><div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><div class="eyebrow" style="margin-top:24px">The celebration is sweeter with you</div><h2 class="section-title">Save a little joy for us.</h2><p>Join us for one day or all three. We’d love to celebrate with you.</p></div><iframe id="rsvp-form" title="RSVP or manage your household’s response" src="https://harshiandlakhan-rsvp.harshiandlakhan.workers.dev/form" loading="lazy" referrerpolicy="no-referrer" height="430"></iframe><p class="rsvp-help">Need a hand? <a href="mailto:harshiandlakhan@gmail.com">Email us</a>.</p></section>
 </main>
 <footer class="footer"><span class="signature">Harshita & Lakhan</span><button class="replay">Open again ↑</button></footer><div class="design-note">April 9–11, 2027 · Suisun Valley Inn · Fairfield, California, USA</div>
-<dialog class="dialog" id="rsvp-dialog" aria-labelledby="rsvp-title"><button class="close" aria-label="Close dialog">×</button><svg class="lotus" aria-hidden="true" style="margin-bottom:24px"><use href="#lotus"/></svg><h2 id="rsvp-title">A place for you.</h2><p>Our RSVP form is coming soon. You’ll be able to let us know which days you can join us.</p><p>We’re not collecting responses just yet. Please check back soon.</p><button class="button close-action">Back to the invitation</button></dialog>
 <script>
 document.body.classList.add('js');
+const rsvpFrame=document.querySelector('#rsvp-form');
+const rsvpOrigin='https://harshiandlakhan-rsvp.harshiandlakhan.workers.dev';
+let rsvpToken;
+function openRsvpLink(){
+ const match=location.hash.match(/^#rsvp\/([a-f0-9]{64})$/);
+ if(!match)return;
+ rsvpToken=match[1];
+ history.replaceState(null,'',location.pathname+location.search+'#rsvp');
+ rsvpFrame.loading='eager';
+ if(document.body.classList.contains('invitation-open'))document.querySelector('#rsvp').scrollIntoView({behavior:'instant'});
+ else enterInvitation('#rsvp');
+ rsvpFrame.contentWindow?.postMessage({type:'wedding-rsvp-token',token:rsvpToken},rsvpOrigin);
+}
+window.addEventListener('message',event=>{
+ if(event.origin!==rsvpOrigin||event.source!==rsvpFrame.contentWindow)return;
+ if(event.data?.type==='wedding-rsvp-height'&&Number.isFinite(event.data.height))rsvpFrame.style.height=Math.min(15000,Math.max(380,event.data.height+8))+'px';
+});
+rsvpFrame.addEventListener('load',()=>{if(rsvpToken)rsvpFrame.contentWindow.postMessage({type:'wedding-rsvp-token',token:rsvpToken},rsvpOrigin)});
+window.addEventListener('hashchange',openRsvpLink);
+
 // April is daylight saving time in California; the explicit offset keeps this
 // countdown identical for guests in every timezone.
 const weddingTime=Date.parse('2027-04-11T11:30:00-07:00');
@@ -257,7 +278,7 @@ function updateCutouts(){
  sequence.style.setProperty('--foliage-x',`${7*(1-foliage)}%`);
  sequence.style.setProperty('--foliage-opacity',.7+.3*foliage);
 }
-let queued=false;function update(){updateCutouts();document.querySelector('.progress').style.transform=`scaleX(${Math.min(1,window.scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))})`;queued=false}window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',update);update();if(['#invitation','#celebrations','#venue','#accommodations','#rsvp'].includes(location.hash)){enterInvitation(location.hash)}
+let queued=false;function update(){updateCutouts();document.querySelector('.progress').style.transform=`scaleX(${Math.min(1,window.scrollY/Math.max(1,document.documentElement.scrollHeight-innerHeight))})`;queued=false}window.addEventListener('scroll',()=>{if(!queued){queued=true;requestAnimationFrame(update)}},{passive:true});window.addEventListener('resize',update);update();openRsvpLink();if(['#invitation','#celebrations','#venue','#accommodations','#rsvp'].includes(location.hash)){enterInvitation(location.hash)}
 document.querySelectorAll('[data-dialog]').forEach(button=>button.addEventListener('click',()=>document.getElementById(button.dataset.dialog).showModal()));document.querySelectorAll('dialog').forEach(dialog=>{dialog.querySelectorAll('.close,.close-action').forEach(button=>button.addEventListener('click',()=>dialog.close()));dialog.addEventListener('click',event=>{if(event.target===dialog){const r=dialog.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)dialog.close()}})});
 </script>
 </body>
