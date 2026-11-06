@@ -7,98 +7,69 @@ X-WR-CALNAME:Harshita & Lakhan - Wedding Weekend
 X-WR-TIMEZONE:America/Los_Angeles
 BEGIN:VEVENT
 UID:2027-sangeet@harshiandlakhan.com
-DTSTAMP:20261105T071054Z
+DTSTAMP:20261106T072909Z
+LAST-MODIFIED:20261106T072909Z
 DTSTART:20270409T230000Z
+DTEND:20270410T050000Z
 SUMMARY:Harshita & Lakhan - Sangeet
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
-DESCRIPTION:Celebrate with Harshita Vallamsetty and Lakhan Saiteja Kamiredd
- y.\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA
- \nEvent start times are in Pacific Time.\nWedding details and RSVP: https:
- //harshiandlakhan.com\nDirections: https://www.google.com/maps/search/?api
- =1&query=4400+Suisun+Valley+Rd+Fairfield+CA+94534
+DESCRIPTION:Friday\, April 9\, 2027\n4:00 PM–10:00 PM Pacific Time\nSange
+ et: music\, dancing\, and celebration.\n\nSuisun Valley Inn\, 4400 Suisun
+  Valley Rd\, Fairfield\, CA 94534\, USA\nInvitation and RSVP: https://hars
+ hiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:0
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:2027-pellikuthuru@harshiandlakhan.com
-DTSTAMP:20261105T071054Z
-DTSTART:20270410T160000Z
-SUMMARY:Harshita & Lakhan - Pellikuthuru
-LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
-  USA
-DESCRIPTION:Celebrate with Harshita Vallamsetty and Lakhan Saiteja Kamiredd
- y.\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA
- \nEvent start times are in Pacific Time.\nWedding details and RSVP: https:
- //harshiandlakhan.com\nDirections: https://www.google.com/maps/search/?api
- =1&query=4400+Suisun+Valley+Rd+Fairfield+CA+94534
-URL:https://harshiandlakhan.com/#venue
-SEQUENCE:0
-STATUS:CONFIRMED
-END:VEVENT
-BEGIN:VEVENT
-UID:2027-pellikoduku@harshiandlakhan.com
-DTSTAMP:20261105T071054Z
-DTSTART:20270410T170000Z
-SUMMARY:Harshita & Lakhan - Pellikoduku
-LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
-  USA
-DESCRIPTION:Celebrate with Harshita Vallamsetty and Lakhan Saiteja Kamiredd
- y.\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA
- \nEvent start times are in Pacific Time.\nWedding details and RSVP: https:
- //harshiandlakhan.com\nDirections: https://www.google.com/maps/search/?api
- =1&query=4400+Suisun+Valley+Rd+Fairfield+CA+94534
-URL:https://harshiandlakhan.com/#venue
-SEQUENCE:0
+SEQUENCE:1
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-engagement@harshiandlakhan.com
-DTSTAMP:20261105T071054Z
-DTSTART:20270410T180000Z
-SUMMARY:Harshita & Lakhan - Engagement
+DTSTAMP:20261106T072909Z
+LAST-MODIFIED:20261106T072909Z
+DTSTART:20270410T160000Z
+DTEND:20270410T190000Z
+SUMMARY:Harshita & Lakhan - Engagement\, Pellikoduku & Pellikuthuru
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
-DESCRIPTION:Celebrate with Harshita Vallamsetty and Lakhan Saiteja Kamiredd
- y.\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA
- \nEvent start times are in Pacific Time.\nWedding details and RSVP: https:
- //harshiandlakhan.com\nDirections: https://www.google.com/maps/search/?api
- =1&query=4400+Suisun+Valley+Rd+Fairfield+CA+94534
+DESCRIPTION:Saturday\, April 10\, 2027\n9:00 AM–12:00 PM Pacific Time\n\n
+ 9:00 AM - Pellikuthuru\n10:00 AM - Pellikoduku\n11:00 AM - Engagement\n\nS
+ uisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA\nInv
+ itation and RSVP: https://harshiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:0
+SEQUENCE:1
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-haldi@harshiandlakhan.com
-DTSTAMP:20261105T071054Z
+DTSTAMP:20261106T072909Z
+LAST-MODIFIED:20261106T072909Z
 DTSTART:20270410T220000Z
+DTEND:20270411T000000Z
 SUMMARY:Harshita & Lakhan - Haldi
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
-DESCRIPTION:Celebrate with Harshita Vallamsetty and Lakhan Saiteja Kamiredd
- y.\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA
- \nEvent start times are in Pacific Time.\nWedding details and RSVP: https:
- //harshiandlakhan.com\nDirections: https://www.google.com/maps/search/?api
- =1&query=4400+Suisun+Valley+Rd+Fairfield+CA+94534
+DESCRIPTION:Saturday\, April 10\, 2027\n3:00 PM–5:00 PM Pacific Time\nHal
+ di celebration.\n\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\,
+  CA 94534\, USA\nInvitation and RSVP: https://harshiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:0
+SEQUENCE:1
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-wedding@harshiandlakhan.com
-DTSTAMP:20261105T071054Z
-DTSTART:20270411T183000Z
-SUMMARY:Harshita & Lakhan - Wedding - 11:30 AM Muhurtham
+DTSTAMP:20261106T072909Z
+LAST-MODIFIED:20261106T072909Z
+DTSTART:20270411T153000Z
+DTEND:20270411T193000Z
+SUMMARY:Harshita & Lakhan - Wedding
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
-DESCRIPTION:Celebrate with Harshita Vallamsetty and Lakhan Saiteja Kamiredd
- y.\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA
- \nEvent start times are in Pacific Time.\nWedding details and RSVP: https:
- //harshiandlakhan.com\nDirections: https://www.google.com/maps/search/?api
- =1&query=4400+Suisun+Valley+Rd+Fairfield+CA+94534
+DESCRIPTION:Sunday\, April 11\, 2027\nWedding: 8:30 AM–12:30 PM Pacific T
+ ime\nMuhurtham: 11:30 AM Pacific Time.\n\nSuisun Valley Inn\, 4400 Suisun
+  Valley Rd\, Fairfield\, CA 94534\, USA\nInvitation and RSVP: https://hars
+ hiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:0
+SEQUENCE:1
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR
