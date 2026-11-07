@@ -214,14 +214,24 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 }
 .invitation-open .topbar:not(.show-sections){visibility:hidden}
 .invitation-open .topbar .monogram{display:none}
-.invitation-open .topbar .nav{gap:clamp(12px,2vw,28px);padding:0;background:none}
+.invitation-open .topbar .nav{position:relative;gap:clamp(12px,2vw,28px);padding:0;background:none}
 .invitation-open .topbar .nav a{
   display:flex;
   align-items:center;
   min-height:44px;
-  border-block:2px solid transparent;
 }
-.invitation-open .topbar .nav a[aria-current="location"]{border-bottom-color:currentColor}
+.invitation-open .topbar .nav::after{
+  content:'';
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:var(--underline-width,0px);
+  height:2px;
+  background:var(--wine);
+  transform:translateX(var(--underline-left,0px));
+  transition:transform .28s ease,width .28s ease;
+  pointer-events:none;
+}
 .invitation-open .topbar .nav a:focus-visible{outline-offset:-4px}
 .invitation-open :is(#celebrations,#venue,#accommodations,#rsvp,#calendar,#calendar-google){scroll-margin-top:60px}
 @media(max-width:599px){
@@ -359,7 +369,8 @@ document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(ope
 const sequence=document.querySelector('.couple-sequence');
 const coupleScene=sequence.querySelector('.couple-scene');
 const topbar=document.querySelector('.topbar');
-const sectionLinks=[...topbar.querySelectorAll('nav a')].reverse().map(link=>({
+const sectionNav=topbar.querySelector('nav');
+const sectionLinks=[...sectionNav.querySelectorAll('a')].reverse().map(link=>({
  link,
  section:document.querySelector(link.hash)
 }));
@@ -376,7 +387,12 @@ function updateSectionNavigation(){
   current?.removeAttribute('aria-current');
   active?.setAttribute('aria-current','location');
  }
+ if(active){
+  sectionNav.style.setProperty('--underline-left',`${active.offsetLeft}px`);
+  sectionNav.style.setProperty('--underline-width',`${active.offsetWidth}px`);
+ }
 }
+new ResizeObserver(updateSectionNavigation).observe(sectionNav);
 const clamp=value=>Math.max(0,Math.min(1,value));
 function updateCutouts(){
  const distance=innerHeight*.28;
