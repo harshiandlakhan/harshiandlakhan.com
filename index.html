@@ -26,7 +26,7 @@ body{padding-top:0}.topbar{position:absolute;top:0;left:0;right:0;z-index:10;max
 .topbar .monogram,.topbar .nav a{color:#631c35;text-shadow:0 1px 3px #fff4e7,0 0 9px #fff4e7}.topbar .monogram{font-weight:600}.topbar .nav a{font-weight:700}.topbar .nav a:hover{color:#a12b4f}
 .inside-card{background:var(--paper) url('assets/couple-straightened-v3.jpg') center top/cover no-repeat;box-shadow:none;transform:scale(1.06);transition:transform 1.5s}.opened .inside-card{transform:scale(1)}
 .js:not(.invitation-open) .invitation-scroll,.js:not(.invitation-open) .footer,.js:not(.invitation-open) .design-note{display:none}
-.invitation-open .cover,.invitation-open .topbar{display:none}
+.invitation-open .cover{display:none}
 .js .scroll-piece{opacity:0;transform:translate3d(0,38px,0);transition:opacity 1s ease var(--delay,0ms),transform 1.2s cubic-bezier(.2,.7,.2,1) var(--delay,0ms)}
 .js .scroll-piece.entered{opacity:1;transform:translate3d(0,0,0)}
 .js .scene-art.scroll-piece{transform:translate3d(0,55px,0) scale(1.045);transform-origin:center top;transition-duration:1.5s,1.8s}
@@ -59,7 +59,6 @@ body{background:var(--paper);padding:0;overflow-x:hidden}
 .cover{position:fixed;inset:0;z-index:20;height:100svh;min-height:0;background:transparent;pointer-events:auto}
 .topbar{position:fixed;z-index:30}
 .invitation-open .cover{display:block;pointer-events:none}
-.invitation-open .topbar{display:none}
 .invitation-open.envelope-away .cover{display:none}
 .inside-card{display:none}.stationery{background:transparent}
 .envelope-lower,.envelope-flap{background-size:cover;background-position:center 54%}
@@ -204,6 +203,31 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 @media(min-width:1000px){.couple-copy .surname{font-size:14px}}
 @media(max-width:599px){.couple-copy .surname{font-size:12px}.couple-copy .date{font-size:11px;letter-spacing:1px}}
 @media(max-width:599px) and (max-height:600px){.couple-art{--art-height:60svh}.couple-copy .date{margin-top:14px}}
+
+/* Keep the envelope's section links within reach as guests scroll. */
+.invitation-open .topbar{
+  height:auto;
+  justify-content:flex-end;
+  padding-block:8px;
+  pointer-events:none;
+}
+.invitation-open .topbar .monogram{display:none}
+.invitation-open .topbar .nav{
+  gap:clamp(12px,2vw,28px);
+  padding:0 14px;
+  border:1px solid #b9986c40;
+  border-radius:4px;
+  background:#faf6ecf5;
+  box-shadow:0 2px 12px #68483b1a;
+  pointer-events:auto;
+}
+.invitation-open .topbar .nav a{display:flex;align-items:center;min-height:44px}
+.invitation-open :is(#celebrations,#venue,#accommodations,#rsvp,#calendar,#calendar-google){scroll-margin-top:76px}
+@media(max-width:599px){
+  .invitation-open .topbar{padding:5px 8px}
+  .invitation-open .topbar .nav{padding:0 9px}
+  .invitation-open .topbar .nav a{font-size:10px;letter-spacing:.3px}
+}
 </style>
 </head>
 <body>
@@ -323,7 +347,13 @@ let touchStartY=0;
 cover.addEventListener('touchstart',event=>{touchStartY=event.touches[0].clientY},{passive:true});
 cover.addEventListener('touchmove',event=>{if(touchStartY-event.touches[0].clientY>20){event.preventDefault();openFromGesture()}},{passive:false});
 window.addEventListener('keydown',event=>{if(!document.body.classList.contains('invitation-open')&&['ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();openFromGesture()}});
-document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventListener('click',event=>{const target=link.getAttribute('href');if(target==='#welcome')return;event.preventDefault();clearTimeout(openingTimer);enterInvitation(target)}));
+document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventListener('click',event=>{
+ if(document.body.classList.contains('invitation-open'))return;
+ const target=link.getAttribute('href');
+ if(target==='#welcome')return;
+ event.preventDefault();
+ enterInvitation(target);
+}));
 document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;hint.textContent='Scroll or touch the seal to open';history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
 
 const sequence=document.querySelector('.couple-sequence');
