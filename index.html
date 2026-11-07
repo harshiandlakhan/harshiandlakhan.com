@@ -204,7 +204,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 @media(max-width:599px){.couple-copy .surname{font-size:12px}.couple-copy .date{font-size:11px;letter-spacing:1px}}
 @media(max-width:599px) and (max-height:600px){.couple-art{--art-height:60svh}.couple-copy .date{margin-top:14px}}
 
-/* Show a slim section bar once the opening names scene has scrolled past. */
+/* Reveal the slim section bar partway through the opening names scene. */
 .invitation-open .topbar{
   height:auto;
   justify-content:center;
@@ -212,7 +212,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
   background:var(--paper);
   border-bottom:1px solid #b9986c40;
 }
-.invitation-open .topbar:not(.past-intro){visibility:hidden}
+.invitation-open .topbar:not(.show-sections){visibility:hidden}
 .invitation-open .topbar .monogram{display:none}
 .invitation-open .topbar .nav{gap:clamp(12px,2vw,28px);padding:0;background:none}
 .invitation-open .topbar .nav a{
@@ -356,6 +356,7 @@ document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventLi
 document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;hint.textContent='Scroll or touch the seal to open';history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
 
 const sequence=document.querySelector('.couple-sequence');
+const coupleScene=sequence.querySelector('.couple-scene');
 const topbar=document.querySelector('.topbar');
 const sectionLinks=[...topbar.querySelectorAll('nav a')].reverse().map(link=>({
  link,
@@ -363,12 +364,13 @@ const sectionLinks=[...topbar.querySelectorAll('nav a')].reverse().map(link=>({
 }));
 function updateSectionNavigation(){
  const open=document.body.classList.contains('invitation-open');
- const barHeight=topbar.offsetHeight;
- const pastIntro=open&&sequence.getBoundingClientRect().bottom<=barHeight;
- topbar.classList.toggle('past-intro',pastIntro);
+ const introScrolled=-sequence.getBoundingClientRect().top;
+ const showSections=open&&introScrolled>=coupleScene.offsetHeight*.4;
+ topbar.classList.toggle('show-sections',showSections);
  const current=topbar.querySelector('[aria-current="location"]');
- // Include the space between the bar and an anchor's scroll position.
- const active=pastIntro?sectionLinks.find(({section})=>section.getBoundingClientRect().top<=barHeight+16)?.link:null;
+ // The midpoint of the area below the bar determines the current section.
+ const midpoint=(topbar.offsetHeight+innerHeight)/2;
+ const active=showSections?sectionLinks.find(({section})=>section.getBoundingClientRect().top<=midpoint)?.link:null;
  if(current!==active){
   current?.removeAttribute('aria-current');
   active?.setAttribute('aria-current','location');
@@ -377,7 +379,7 @@ function updateSectionNavigation(){
 const clamp=value=>Math.max(0,Math.min(1,value));
 function updateCutouts(){
  const distance=innerHeight*.28;
- sequence.style.height=`${document.querySelector(".couple-scene").offsetHeight+(motion.matches?0:distance)}px`;
+ sequence.style.height=`${coupleScene.offsetHeight+(motion.matches?0:distance)}px`;
  const progress=motion.matches?1:clamp(.18+Math.max(0,-sequence.getBoundingClientRect().top)/distance*.82);
  const ease=value=>1-Math.pow(1-clamp(value),3);
  const couple=ease(progress/ .8),lamps=ease((progress-.12)/.88),foliage=ease((progress-.06)/.85);
