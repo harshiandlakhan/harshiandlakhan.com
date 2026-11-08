@@ -6,7 +6,7 @@
   ['An invitation, with love · Design preview','ప్రేమతో ఆహ్వానం · నమూనా'],
   ['Open our wedding invitation','మా వివాహ ఆహ్వానాన్ని తెరవండి'],['The wedding of','వివాహ మహోత్సవ ఆహ్వానం'],
   ['Harshita & Lakhan','లఖన్ మరియు హర్షిత'],['Open our invitation','మా ఆహ్వానాన్ని తెరవండి'],
-  ['Scroll or touch the seal to open','తెరవడానికి కిందికి స్క్రోల్ చేయండి లేదా ముద్రను తాకండి'],['Read the invitation ↓','ఆహ్వానాన్ని చదవండి ↓'],
+  ['Tap, click, or scroll to open','తెరవడానికి ఎక్కడైనా తాకండి, క్లిక్ చేయండి లేదా స్క్రోల్ చేయండి'],['Read the invitation ↓','ఆహ్వానాన్ని చదవండి ↓'],
   ['Illustrated saree and dhoti, brass lamps, flowers and banana leaves','చీర, పంచె, ఇత్తడి దీపాలు, పూలు, అరటి ఆకుల చిత్రణ'],
   ['Together','కలిసి'],['A beautiful beginning','ఒక అందమైన ఆరంభం'],['With love, we invite you to celebrate','మా వివాహ వేడుకకు ప్రేమతో ఆహ్వానిస్తున్నాము'],
   ['Harshita','హర్షిత'],['Vallamsetty','వల్లంసెట్టి'],['Lakhan Saiteja','లఖన్ సాయితేజ'],['Kamireddy','కామిరెడ్డి'],

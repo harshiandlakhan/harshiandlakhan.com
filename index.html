@@ -348,6 +348,7 @@ html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-action
 
 .event .attire-note{font:13px/1.65 var(--sans);letter-spacing:0;text-transform:none;margin:14px 0 0}
 .event .attire-note strong{color:var(--wine)}
+.js:not(.invitation-open) .cover{cursor:pointer}
 .event h3 .event-icon{width:.78em;height:.78em;margin-inline-end:.28em;vertical-align:-.06em;color:#8c6c37}
 .attire-swatches{display:inline-flex;gap:4px;margin-inline-start:.45em;vertical-align:middle}
 .attire-swatches span{width:10px;height:10px;border:1px solid #68483b40;border-radius:50%;background:var(--swatch)}
@@ -366,7 +367,7 @@ html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-action
 <div class="envelope-petals" aria-hidden="true"><i style="--x:5%;--drift:80px;--duration:15s;--delay:-3s;--size:10px"></i><i style="--x:18%;--drift:-60px;--duration:18s;--delay:-12s;--size:13px"></i><i style="--x:32%;--drift:95px;--duration:17s;--delay:-7s;--size:9px"></i><i style="--x:47%;--drift:-80px;--duration:20s;--delay:-17s;--size:12px"></i><i style="--x:62%;--drift:70px;--duration:16s;--delay:-10s;--size:10px"></i><i style="--x:78%;--drift:-90px;--duration:19s;--delay:-4s;--size:14px"></i><i style="--x:91%;--drift:-65px;--duration:17s;--delay:-14s;--size:11px"></i><i style="--x:12%;--drift:100px;--duration:21s;--delay:-8s;--size:9px"></i><i style="--x:27%;--drift:-70px;--duration:16s;--delay:-1s;--size:12px"></i><i style="--x:55%;--drift:85px;--duration:22s;--delay:-13s;--size:10px"></i><i style="--x:72%;--drift:-100px;--duration:18s;--delay:-6s;--size:13px"></i><i style="--x:86%;--drift:60px;--duration:20s;--delay:-16s;--size:9px"></i></div>
 <div class="envelope-label"><span class="eyebrow">The wedding of</span><p>Harshita & Lakhan</p></div>
 <button class="seal-hit" aria-label="Open our invitation"></button>
-<div class="opening-caption" aria-live="polite">Scroll or touch the seal to open</div>
+<div class="opening-caption" aria-live="polite">Tap, click, or scroll to open</div>
 </div>
 <a class="skip-cover" href="#invitation">Read the invitation ↓</a>
 </section>
@@ -518,7 +519,7 @@ function updateCountdown(){
 }
 updateCountdown();
 countdownInterval=setInterval(updateCountdown,1000);
-const motion=window.matchMedia('(prefers-reduced-motion: reduce)'),cover=document.querySelector('.cover'),seal=document.querySelector('.seal-hit'),hint=document.querySelector('.opening-caption');
+const motion=window.matchMedia('(prefers-reduced-motion: reduce)'),cover=document.querySelector('.cover'),seal=document.querySelector('.seal-hit');
 const scrollCue=document.querySelector('.scroll-cue');
 let openingTimer,scrollCueTimer;
 function dismissScrollCue(){
@@ -558,7 +559,9 @@ function enterInvitation(target='#invitation',animate=false){
  },animate&&!motion.matches?1350:0);
 }
 function openFromGesture(){enterInvitation('#invitation',true)}
-seal.addEventListener('click',openFromGesture);
+cover.addEventListener('click',event=>{
+ if(!event.target.closest('a'))openFromGesture();
+});
 window.addEventListener('wheel',event=>{if(!document.body.classList.contains('envelope-away')&&event.deltaY>0){event.preventDefault();openFromGesture()}},{passive:false});
 let touchStartY=0;
 cover.addEventListener('touchstart',event=>{touchStartY=event.touches[0].clientY},{passive:true});
@@ -574,7 +577,7 @@ document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventLi
  event.preventDefault();
  enterInvitation(target);
 }));
-document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);dismissScrollCue();observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away','reveal-artwork');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;hint.textContent='Scroll or touch the seal to open';history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
+document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);dismissScrollCue();observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away','reveal-artwork');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
 
 const sequence=document.querySelector('.couple-sequence');
 const coupleScene=sequence.querySelector('.couple-scene');
