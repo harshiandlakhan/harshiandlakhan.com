@@ -320,13 +320,16 @@ html[lang=te] .family .family-parents { font-size:clamp(14px,2vw,18px) }
 html[lang=te] .family strong { font-size:clamp(18px,2.4vw,24px) }
 html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-actions summary { height:auto; min-height:64px }
 @media(max-width:599px){
-  body:not(.invitation-open) .topbar,.invitation-open .topbar.show-sections {
-    height:auto; justify-content:flex-start; padding:0 12px;
-    background:var(--paper); border-bottom:1px solid #b9986c40;
+  body:not(.invitation-open) .topbar {
+    height:auto; justify-content:flex-start; padding:3px 12px 0;
+    pointer-events:none;
   }
-  .js:not(.invitation-open) .topbar .nav,.invitation-open .topbar.show-sections .nav { margin:0 }
-  .topbar .nav { padding:0; background:none }
-  .topbar .nav a {
+  .js:not(.invitation-open) .topbar .nav { margin:0; pointer-events:auto }
+  .invitation-open .topbar.show-sections {
+    height:auto; justify-content:flex-start; padding:0 12px;
+  }
+  .invitation-open .topbar.show-sections .nav { margin:0 }
+  .invitation-open .topbar .nav a {
     display:flex; align-items:center; min-height:44px; font-size:10px; letter-spacing:.3px;
   }
   .invitation-language {
@@ -367,7 +370,7 @@ html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-action
 <div class="envelope-petals" aria-hidden="true"><i style="--x:5%;--drift:80px;--duration:15s;--delay:-3s;--size:10px"></i><i style="--x:18%;--drift:-60px;--duration:18s;--delay:-12s;--size:13px"></i><i style="--x:32%;--drift:95px;--duration:17s;--delay:-7s;--size:9px"></i><i style="--x:47%;--drift:-80px;--duration:20s;--delay:-17s;--size:12px"></i><i style="--x:62%;--drift:70px;--duration:16s;--delay:-10s;--size:10px"></i><i style="--x:78%;--drift:-90px;--duration:19s;--delay:-4s;--size:14px"></i><i style="--x:91%;--drift:-65px;--duration:17s;--delay:-14s;--size:11px"></i><i style="--x:12%;--drift:100px;--duration:21s;--delay:-8s;--size:9px"></i><i style="--x:27%;--drift:-70px;--duration:16s;--delay:-1s;--size:12px"></i><i style="--x:55%;--drift:85px;--duration:22s;--delay:-13s;--size:10px"></i><i style="--x:72%;--drift:-100px;--duration:18s;--delay:-6s;--size:13px"></i><i style="--x:86%;--drift:60px;--duration:20s;--delay:-16s;--size:9px"></i></div>
 <div class="envelope-label"><span class="eyebrow">The wedding of</span><p>Harshita & Lakhan</p></div>
 <button class="seal-hit" aria-label="Open our invitation"></button>
-<div class="opening-caption" aria-live="polite">Tap, click, or scroll to open</div>
+<div class="opening-caption" aria-live="polite">Click or scroll to open</div>
 </div>
 <a class="skip-cover" href="#invitation">Read the invitation ↓</a>
 </section>
