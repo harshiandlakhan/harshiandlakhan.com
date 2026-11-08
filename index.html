@@ -248,7 +248,6 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 .invitation-open .topbar .nav a:focus-visible{outline-offset:-4px}
 .invitation-open :is(#wedding-countdown,#celebrations,#venue,#accommodations,#rsvp,#calendar,#calendar-google){scroll-margin-top:60px}
 @media(max-width:599px){
-  .invitation-open .topbar .nav a{min-height:34px;font-size:10px;letter-spacing:.3px}
   .invitation-open :is(#wedding-countdown,#celebrations,#venue,#accommodations,#rsvp,#calendar,#calendar-google){scroll-margin-top:50px}
 }
 .scroll-cue{
@@ -274,10 +273,6 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
     22%{transform:translateY(3px)}
   }
 }
-@media(max-width:599px) and (max-height:700px){
-  .scroll-cue{left:auto;right:8px;transform:none}
-}
-
 /* Telugu typography and the language switch. */
 .invitation-language { position:absolute; right:12px; top:50%; transform:translateY(-50%); pointer-events:auto }
 .invitation-language button {
@@ -325,10 +320,24 @@ html[lang=te] .family .family-parents { font-size:clamp(14px,2vw,18px) }
 html[lang=te] .family strong { font-size:clamp(18px,2.4vw,24px) }
 html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-actions summary { height:auto; min-height:64px }
 @media(max-width:599px){
-  body:not(.invitation-open) .topbar,.invitation-open .topbar.show-sections { height:auto; flex-wrap:wrap; justify-content:flex-end; padding-top:3px }
-  body:not(.invitation-open) .invitation-language,.invitation-open .topbar.show-sections .invitation-language { position:static; transform:none; order:-1 }
-  body:not(.invitation-open) .topbar .nav,.invitation-open .topbar.show-sections .nav { width:100%; justify-content:center; margin:0 }
-  .invitation-open :is(#wedding-countdown,#celebrations,#venue,#accommodations,#rsvp,#calendar,#calendar-google) { scroll-margin-top:86px }
+  body:not(.invitation-open) .topbar,.invitation-open .topbar.show-sections {
+    height:auto; justify-content:flex-start; padding:0 12px;
+    background:var(--paper); border-bottom:1px solid #b9986c40;
+  }
+  .js:not(.invitation-open) .topbar .nav,.invitation-open .topbar.show-sections .nav { margin:0 }
+  .topbar .nav { padding:0; background:none }
+  .topbar .nav a {
+    display:flex; align-items:center; min-height:44px; font-size:10px; letter-spacing:.3px;
+  }
+  .invitation-language {
+    position:fixed; top:auto;
+    right:calc(12px + env(safe-area-inset-right, 0px));
+    bottom:calc(14px + env(safe-area-inset-bottom, 0px));
+    transform:none;
+  }
+  .invitation-language button { min-height:44px; box-shadow:0 4px 12px #68483b30 }
+  .cover > .skip-cover { bottom:max(9%, calc(64px + env(safe-area-inset-bottom, 0px))) }
+  .invitation-open .design-note { padding-bottom:calc(64px + env(safe-area-inset-bottom, 0px)) }
   html[lang=te] .subline { font-size:11px }
   html[lang=te] .couple-copy .intro-line { font:500 13px/1.55 var(--sans) }
   html[lang=te] .couple-copy .surname { font-size:13px }
@@ -554,7 +563,10 @@ window.addEventListener('wheel',event=>{if(!document.body.classList.contains('en
 let touchStartY=0;
 cover.addEventListener('touchstart',event=>{touchStartY=event.touches[0].clientY},{passive:true});
 cover.addEventListener('touchmove',event=>{if(touchStartY-event.touches[0].clientY>20){event.preventDefault();openFromGesture()}},{passive:false});
-window.addEventListener('keydown',event=>{if(!document.body.classList.contains('invitation-open')&&['ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();openFromGesture()}});
+window.addEventListener('keydown',event=>{
+ if(event.key===' '&&event.target.closest?.('button, a'))return;
+ if(!document.body.classList.contains('invitation-open')&&['ArrowDown','PageDown',' '].includes(event.key)){event.preventDefault();openFromGesture()}
+});
 document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventListener('click',event=>{
  if(document.body.classList.contains('invitation-open'))return;
  const target=link.getAttribute('href');
