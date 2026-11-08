@@ -177,7 +177,8 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 .calendar-primary-actions svg{width:28px;height:28px;flex:0 0 28px}.calendar-primary-actions span{text-align:left}
 .calendar-primary-actions .google-event-list{position:absolute;left:0;top:100%;z-index:5;width:min(390px,calc(100vw - 48px));max-width:none;margin-top:8px;box-shadow:0 8px 20px #68483b14}
 @media(max-width:480px){.calendar-primary-actions{gap:10px}.calendar-primary-actions .google-calendar,.calendar-primary-actions>.ical-calendar{font-size:12px;gap:8px}}
-.couple-copy .surname{font-size:11px}.family .family-parents{font:400 20px/1.5 var(--serif);color:var(--ink);margin-top:16px}
+.couple-copy .surname{font-size:11px}.family .family-parents{font:400 20px/1.5 var(--serif);color:var(--ink);margin-top:16px;white-space:nowrap}
+@media(max-width:720px){.families{grid-template-columns:1fr;gap:28px}}
 @media(min-width:1000px){.couple-copy .surname{font-size:12px}}
 @media(max-width:599px){.couple-copy .surname{font-size:10px}.family .family-parents{font-size:17px}}
 /* Keep the wedding details in the clear sky above the vineyard landscape. */
@@ -360,7 +361,7 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
 <article class="hotel"><h3><a href="https://www.expedia.com/Fairfield-Hotels-Staybridge-Suites-Fairfield-Napa-Valley-Area.h1705879.Hotel-Information?chkin=2027-04-09&amp;chkout=2027-04-11&amp;x_pwa=1" target="_blank" rel="noopener noreferrer">Staybridge Suites Fairfield Napa Valley Area&nbsp;<span class="hotel-link-arrow" aria-hidden="true">↗</span></a></h3></article>
 <article class="hotel"><h3><a href="https://www.expedia.com/Fairfield-Hotels-Homewood-Suites-By-Hilton-Fairfield-Napa-Valley-Area.h1695928.Hotel-Information?chkin=2027-04-09&amp;chkout=2027-04-11&amp;x_pwa=1" target="_blank" rel="noopener noreferrer">Homewood Suites by Hilton Fairfield–Napa Valley Area&nbsp;<span class="hotel-link-arrow" aria-hidden="true">↗</span></a></h3></article>
 </div><p class="stay-note">These links are set to check in April 9 and check out April 11.</p></section>
-  <section class="paper-section rsvp" id="rsvp"><div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><div class="eyebrow" style="margin-top:24px">The celebration is sweeter with you</div><h2 class="section-title">Save a little joy for us.</h2><p>Join us for one day or all three. We’d love to celebrate with you.</p></div><iframe id="rsvp-form" title="RSVP or manage your household’s response" src="https://harshiandlakhan-rsvp.harshiandlakhan.workers.dev/form" loading="lazy" referrerpolicy="no-referrer" height="430"></iframe><p class="rsvp-help">Need a hand? <a href="mailto:harshiandlakhan@gmail.com">Email us</a>.</p></section>
+  <section class="paper-section rsvp" aria-labelledby="rsvp-title"><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><div id="rsvp"><div class="eyebrow" style="margin-top:24px">The celebration is sweeter with you</div><h2 class="section-title" id="rsvp-title">Save a little joy for us.</h2><p>Join us for one day or all three. We’d love to celebrate with you.</p></div><iframe id="rsvp-form" title="RSVP or manage your household’s response" src="https://harshiandlakhan-rsvp.harshiandlakhan.workers.dev/form" loading="lazy" referrerpolicy="no-referrer" height="430"></iframe><p class="rsvp-help">Need a hand? <a href="mailto:harshiandlakhan@gmail.com">Email us</a>.</p></section>
 </main>
 <footer class="footer"><span class="signature">Harshita & Lakhan</span><button class="replay">Open again ↑</button></footer><div class="design-note">April 9–11, 2027 · Suisun Valley Inn · Fairfield, California, USA</div>
 <script>
@@ -385,7 +386,16 @@ window.addEventListener('message',event=>{
 });
 rsvpFrame.addEventListener('load',()=>{if(rsvpToken)rsvpFrame.contentWindow.postMessage({type:'wedding-rsvp-token',token:rsvpToken},rsvpOrigin)});
 window.addEventListener('hashchange',openRsvpLink);
-function openCalendarMenu(){if(location.hash==='#calendar-google'){document.querySelector('#calendar-google').open=true;if(document.body.classList.contains('invitation-open'))document.querySelector('#calendar').scrollIntoView({behavior:'smooth'});else enterInvitation('#calendar');}}
+const googleCalendarMenu=document.querySelector('#calendar-google');
+document.addEventListener('click',event=>{
+ if(googleCalendarMenu.open&&!googleCalendarMenu.contains(event.target))googleCalendarMenu.open=false;
+});
+function openCalendarMenu(){
+ if(location.hash!=='#calendar-google')return;
+ googleCalendarMenu.open=true;
+ if(document.body.classList.contains('invitation-open'))document.querySelector('#calendar').scrollIntoView({behavior:'smooth'});
+ else enterInvitation('#calendar');
+}
 window.addEventListener('hashchange',openCalendarMenu);
 
 // April is daylight saving time in California; the explicit offset keeps this
