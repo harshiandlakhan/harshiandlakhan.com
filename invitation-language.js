@@ -32,7 +32,7 @@
   ['Engagement','నిశ్చితార్థం'],['11:00 AM','ఉదయం 11:00'],['Haldi','హల్దీ'],['2:00–4:00 PM','మధ్యాహ్నం 2:00–4:00'],
   ['Sunday · April 11','ఆదివారం · ఏప్రిల్ 11'],['Muhurtham at 11:30 AM','సుముహూర్తం ఉదయం 11:30 గంటలకు'],
   ['Suggested attire','దుస్తుల సూచనలు'],
-  ['Bright, festive outfits you can dance in.','నృత్యం చేయడానికి సౌకర్యంగా ఉండే రంగురంగుల వేడుక దుస్తులు.'],
+  ['Colorful evening wear. Dress up and come ready to dance.','సాయంత్రపు వేడుకకు రంగురంగుల దుస్తులు. చక్కగా ముస్తాబై, నృత్యం చేయడానికి సిద్ధంగా రండి.'],
   ['Yellow or marigold tones.','పసుపు లేదా బంతిపూల రంగు దుస్తులు.'],
   ['Traditional Indian attire or formal wear, such as a sari, kurta, suit, or dress.','చీర లేదా కుర్తా వంటి భారతీయ సంప్రదాయ దుస్తులు, లేదా సూట్ లేదా డ్రెస్ వంటి ఫార్మల్ దుస్తులు.'],
   ['All celebrations take place at Suisun Valley Inn.','అన్ని వేడుకలు సూసూన్ వ్యాలీ ఇన్‌లో జరుగుతాయి.'],
