@@ -224,9 +224,16 @@ body{overflow-x:clip}.invitation-scroll{overflow:clip}
   height:auto;
   justify-content:center;
   padding:0 8px;
-  background:var(--paper);
-  background:color-mix(in srgb,var(--paper) 88%,transparent);
+  background:var(--nav-tint,var(--paper));
+  background:color-mix(in srgb,var(--nav-tint,var(--paper)) 94%,transparent);
   border-bottom:1px solid #b9986c40;
+}
+.invitation-open .topbar:has(a[href="#celebrations"][aria-current="location"]){--nav-tint:#f8eedc}
+.invitation-open .topbar:has(a[href="#venue"][aria-current="location"]){--nav-tint:#eef1e3}
+.invitation-open .topbar:has(a[href="#accommodations"][aria-current="location"]){--nav-tint:#f2ebe2}
+.invitation-open .topbar:has(a[href="#rsvp"][aria-current="location"]){--nav-tint:#f7e9e7}
+@media(prefers-reduced-motion:no-preference){
+  .invitation-open .topbar.show-sections{transition:background-color .25s ease}
 }
 .invitation-open .topbar:not(.show-sections){visibility:hidden}
 .invitation-open .topbar .monogram{display:none}
