@@ -34,7 +34,7 @@
   ['Suggested attire','దుస్తుల సూచనలు'],
   ['Colorful evening wear. Dress up and come ready to dance.','సాయంత్రపు వేడుకకు రంగురంగుల దుస్తులు. చక్కగా ముస్తాబై, నృత్యం చేయడానికి సిద్ధంగా రండి.'],
   ['Yellow or marigold tones.','పసుపు లేదా బంతిపూల రంగు దుస్తులు.'],
-  ['Traditional Indian attire or formal wear, such as a sari, kurta, suit, or dress.','చీర లేదా కుర్తా వంటి భారతీయ సంప్రదాయ దుస్తులు, లేదా సూట్ లేదా డ్రెస్ వంటి ఫార్మల్ దుస్తులు.'],
+  ['Traditional Indian attire or formal wear.','భారతీయ సంప్రదాయ దుస్తులు లేదా ఫార్మల్ దుస్తులు.'],
   ['All celebrations take place at Suisun Valley Inn.','అన్ని వేడుకలు సూసూన్ వ్యాలీ ఇన్‌లో జరుగుతాయి.'],
   ['All times are local to California (Pacific Time).','సమయాలన్నీ కాలిఫోర్నియా పసిఫిక్ సమయం ప్రకారం.'],
   ['Add to Google Calendar','గూగుల్ క్యాలెండర్‌కు జోడించండి'],['Add to Apple Calendar','ఆపిల్ క్యాలెండర్‌కు జోడించండి'],
