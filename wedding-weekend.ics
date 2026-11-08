@@ -7,11 +7,11 @@ X-WR-CALNAME:Harshita & Lakhan - Wedding Weekend
 X-WR-TIMEZONE:America/Los_Angeles
 BEGIN:VEVENT
 UID:2027-sangeet@harshiandlakhan.com
-DTSTAMP:20261106T072909Z
-LAST-MODIFIED:20261106T072909Z
+DTSTAMP:20261108T213423Z
+LAST-MODIFIED:20261108T213423Z
 DTSTART:20270409T230000Z
 DTEND:20270410T050000Z
-SUMMARY:Harshita & Lakhan - Sangeet
+SUMMARY:🎶 Harshita & Lakhan - Sangeet
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
 DESCRIPTION:Friday\, April 9\, 2027\n4:00 PM–10:00 PM Pacific Time\nSange
@@ -19,16 +19,16 @@ DESCRIPTION:Friday\, April 9\, 2027\n4:00 PM–10:00 PM Pacific Time\nSange
   Valley Rd\, Fairfield\, CA 94534\, USA\nInvitation and RSVP: https://hars
  hiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:1
+SEQUENCE:2
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-engagement@harshiandlakhan.com
-DTSTAMP:20261106T072909Z
-LAST-MODIFIED:20261106T072909Z
+DTSTAMP:20261108T213423Z
+LAST-MODIFIED:20261108T213423Z
 DTSTART:20270410T160000Z
 DTEND:20270410T190000Z
-SUMMARY:Harshita & Lakhan - Engagement\, Pellikoduku & Pellikuthuru
+SUMMARY:💍 Harshita & Lakhan - Engagement\, Pellikoduku & Pellikuthuru
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
 DESCRIPTION:Saturday\, April 10\, 2027\n9:00 AM–12:00 PM Pacific Time\n\n
@@ -36,32 +36,32 @@ DESCRIPTION:Saturday\, April 10\, 2027\n9:00 AM–12:00 PM Pacific Time\n\n
  uisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\, USA\nInv
  itation and RSVP: https://harshiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:1
+SEQUENCE:2
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-haldi@harshiandlakhan.com
-DTSTAMP:20261107T015348Z
-LAST-MODIFIED:20261107T015348Z
+DTSTAMP:20261108T213423Z
+LAST-MODIFIED:20261108T213423Z
 DTSTART:20270410T210000Z
 DTEND:20270410T230000Z
-SUMMARY:Harshita & Lakhan - Haldi
+SUMMARY:🌼 Harshita & Lakhan - Haldi
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
 DESCRIPTION:Saturday\, April 10\, 2027\n2:00 PM–4:00 PM Pacific Time\nHal
  di celebration.\n\nSuisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\,
   CA 94534\, USA\nInvitation and RSVP: https://harshiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:2
+SEQUENCE:3
 STATUS:CONFIRMED
 END:VEVENT
 BEGIN:VEVENT
 UID:2027-wedding@harshiandlakhan.com
-DTSTAMP:20261106T072909Z
-LAST-MODIFIED:20261106T072909Z
+DTSTAMP:20261108T213423Z
+LAST-MODIFIED:20261108T213423Z
 DTSTART:20270411T153000Z
 DTEND:20270411T193000Z
-SUMMARY:Harshita & Lakhan - Wedding
+SUMMARY:💐 Harshita & Lakhan - Wedding
 LOCATION:Suisun Valley Inn\, 4400 Suisun Valley Rd\, Fairfield\, CA 94534\,
   USA
 DESCRIPTION:Sunday\, April 11\, 2027\nWedding: 8:30 AM–12:30 PM Pacific T
@@ -69,7 +69,7 @@ DESCRIPTION:Sunday\, April 11\, 2027\nWedding: 8:30 AM–12:30 PM Pacific T
   Valley Rd\, Fairfield\, CA 94534\, USA\nInvitation and RSVP: https://hars
  hiandlakhan.com
 URL:https://harshiandlakhan.com/#venue
-SEQUENCE:1
+SEQUENCE:2
 STATUS:CONFIRMED
 END:VEVENT
 END:VCALENDAR
