@@ -23,7 +23,7 @@
   ['Harshita and Lakhan illustrated on a low platform beneath a jasmine-draped mandap, with California vineyard hills behind them','కాలిఫోర్నియా ద్రాక్షతోటల నేపథ్యంలో మల్లెపూల మండపంలో హర్షిత, లఖన్'],
   ['Join us for our','మీకు మా ఆహ్వానం'],['Wedding','వివాహ మహోత్సవం'],['April 11, 2027','11 ఏప్రిల్ 2027'],
   ['8:30 AM–12:30 PM · Muhurtham 11:30 AM','సుముహూర్తం ఉదయం 11:30 గంటలకు'],
-  ['Scroll down','కిందికి స్క్రోల్ చేయండి'],['Suisun Valley Inn','సూసన్ వ్యాలీ ఇన్'],['Fairfield, California, USA','ఫెయిర్‌ఫీల్డ్, కాలిఫోర్నియా, అమెరికా'],
+  ['Scroll down','కిందికి స్క్రోల్ చేయండి'],['We can’t wait to celebrate with you.','మీతో కలిసి వేడుకలు జరుపుకోవాలని ఆతృతగా ఎదురుచూస్తున్నాం.'],['Suisun Valley Inn','సూసన్ వ్యాలీ ఇన్'],['Fairfield, California, USA','ఫెయిర్‌ఫీల్డ్, కాలిఫోర్నియా, అమెరికా'],
   ['4400 Suisun Valley Rd, Fairfield, CA, USA','4400 సూసన్ వ్యాలీ రోడ్, ఫెయిర్‌ఫీల్డ్, కాలిఫోర్నియా, అమెరికా'],
   ['Three days of love & celebration','మూడు రోజుల ఆనందోత్సవం'],['Our Celebrations','మా వివాహ వేడుకలు'],
   ['April 9–11, 2027 · Suisun Valley Inn','9–11 ఏప్రిల్ 2027 · సూసన్ వ్యాలీ ఇన్'],
