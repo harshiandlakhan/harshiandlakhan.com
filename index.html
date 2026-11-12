@@ -391,6 +391,23 @@ html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-action
     background-position: center, center 46%;
   }
 }
+
+/* Scroll prompt */
+.scroll-cue{
+  width:158px;
+  height:49px;
+  display:flex;
+  justify-content:center;
+  gap:13px;
+  background:#faf6ecf2;
+  border:1px solid #a9875055;
+  border-radius:28px;
+  box-shadow:0 3px 18px #68483b22;
+  text-decoration:none;
+  font:500 12px var(--sans);
+}
+.scroll-cue svg{width:25px;height:25px;flex-shrink:0}
+html[lang=te] .scroll-cue{width:auto;max-width:calc(100% - 32px);padding:0 18px;white-space:nowrap}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600&amp;family=Noto+Serif+Telugu:wght@400;500;600&amp;display=swap">
 </head>
@@ -446,6 +463,7 @@ html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-action
     </svg>
     </div><div class="couple-copy"><h1 id="together-title" class="together" tabindex="-1">Together</h1><div class="subline">A beautiful beginning</div><svg class="lotus" aria-hidden="true"><use href="#lotus"/></svg><p class="intro-line">With love, we invite you to celebrate</p><div class="name" data-language-bride><span class="te-only honorific">చి॥ల॥సౌ॥</span> Harshita <span class="te-only full-surname">వల్లంసెట్టి</span></div><div class="surname en-only" data-language-bride>Vallamsetty</div><div class="amp">&</div><div class="name" data-language-groom><span class="te-only honorific">చి॥</span> Lakhan Saiteja <span class="te-only full-surname">కామిరెడ్డి</span></div><div class="surname en-only" data-language-groom>Kamireddy</div><div class="date">April 11, 2027 · Fairfield, California, USA</div></div></section></div>
   <a class="scroll-cue" href="#wedding-countdown" aria-label="Scroll down to the wedding countdown" hidden>
+    <span class="scroll-label">Scroll down</span>
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v19m-5-5 5 5 5-5"/></svg>
   </a>
   <section class="wedding-countdown" id="wedding-countdown" aria-labelledby="countdown-heading">
@@ -560,7 +578,7 @@ updateCountdown();
 countdownInterval=setInterval(updateCountdown,1000);
 const motion=window.matchMedia('(prefers-reduced-motion: reduce)'),cover=document.querySelector('.cover'),seal=document.querySelector('.seal-hit');
 const scrollCue=document.querySelector('.scroll-cue');
-let openingTimer,scrollCueTimer;
+let openingTimer,scrollCueTimer,autoOpenTimer;
 function dismissScrollCue(){
  clearTimeout(scrollCueTimer);
  scrollCueTimer=undefined;
@@ -579,6 +597,7 @@ function observePieces(){pieces.forEach(el=>observer.observe(el));update()}
 let opening=false;
 function enterInvitation(target='#invitation',animate=false){
  if(opening||document.body.classList.contains('invitation-open'))return;
+ clearTimeout(autoOpenTimer);
  opening=true;seal.disabled=true;
  document.body.classList.add('invitation-open');
  if(animate&&target==='#invitation')document.body.classList.add('reveal-artwork');
@@ -598,6 +617,11 @@ function enterInvitation(target='#invitation',animate=false){
  },animate&&!motion.matches?1350:0);
 }
 function openFromGesture(){enterInvitation('#invitation',true)}
+function scheduleAutoOpen(){
+ clearTimeout(autoOpenTimer);
+ autoOpenTimer=setTimeout(openFromGesture,10000);
+}
+scheduleAutoOpen();
 cover.addEventListener('click',event=>{
  if(!event.target.closest('a'))openFromGesture();
 });
@@ -616,7 +640,7 @@ document.querySelectorAll('.topbar a,.skip-cover').forEach(link=>link.addEventLi
  event.preventDefault();
  enterInvitation(target);
 }));
-document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);dismissScrollCue();observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away','reveal-artwork');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true})});
+document.querySelector('.replay').addEventListener('click',()=>{clearTimeout(openingTimer);dismissScrollCue();observer.disconnect();pieces.forEach(el=>el.classList.remove('entered'));document.body.classList.remove('invitation-open','envelope-away','reveal-artwork');opening=false;document.querySelector('.couple-art').classList.remove('entered');cover.classList.remove('opened');seal.disabled=false;history.replaceState(null,'',location.pathname);window.scrollTo({top:0,behavior:'instant'});seal.focus({preventScroll:true});scheduleAutoOpen()});
 
 const sequence=document.querySelector('.couple-sequence');
 const coupleScene=sequence.querySelector('.couple-scene');
