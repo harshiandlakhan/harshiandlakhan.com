@@ -408,27 +408,15 @@ html[lang=te] .calendar-primary-actions a,html[lang=te] .calendar-primary-action
 }
 .scroll-cue svg{width:25px;height:25px;flex-shrink:0}
 html[lang=te] .scroll-cue{width:auto;max-width:calc(100% - 32px);padding:0 18px;white-space:nowrap}
-.couple-photo-section{margin:0;background:var(--paper);text-align:center;padding:0 0 32px}
-.couple-photo-section img{display:block;width:100%;height:clamp(440px,48vw,760px);object-fit:cover;object-position:54% 52%;mask-image:linear-gradient(transparent,#000 8%,#000 88%,transparent)}
-.couple-photo-section figcaption{font:italic 26px/1.4 var(--serif);padding:12px 24px 0;color:var(--ink)}
-@media(max-width:599px){
-.couple-photo-frame{
-position:relative;
-aspect-ratio:.85;
-overflow:hidden;
-mask-image:linear-gradient(transparent,#000 8%,#000 88%,transparent);
+.couple-photo-section{margin:0;background:var(--paper);text-align:center;padding:12px 24px 48px}
+.couple-photo-frame{position:relative;width:min(100%,520px);margin:0 auto;aspect-ratio:3/4;overflow:hidden;mask-image:linear-gradient(transparent,#000 5%,#000 93%,transparent);}
+.couple-photo-frame img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 65%;}
+.couple-photo-section figcaption{font:italic 26px/1.4 var(--serif);padding:18px 12px 0;color:var(--ink)}
+@media(min-width:600px){
+.couple-photo-frame img{mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+
 }
-.couple-photo-section .couple-photo-frame img{
-position:absolute;
-width:100%;
-height:125%;
-top:-25%;
-object-fit:cover;
-object-position:55% 50%;
-mask-image:none;
-}
-.couple-photo-section figcaption{font-size:22px}
-}
+@media(max-width:599px){.couple-photo-section{padding:0 0 32px}.couple-photo-frame{width:100%;aspect-ratio:3/4}.couple-photo-frame img{transform:scale(1.1);transform-origin:50% 65%}.couple-photo-section figcaption{font-size:22px;padding:14px 20px 0}}
 </style>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+Telugu:wght@400;500;600&amp;family=Noto+Serif+Telugu:wght@400;500;600&amp;display=swap">
 </head>
@@ -499,7 +487,7 @@ mask-image:none;
     <p class="countdown-date"><time datetime="2027-04-11T11:30:00-07:00">April 11, 2027 · 11:30 AM</time> · Pacific Time</p>
   </section>
   <figure class="couple-photo-section">
-<div class="couple-photo-frame"><img src="assets/couple-photo.jpg" width="2000" height="1333" alt="Lakhan and Harshita making a heart with their hands" loading="lazy"></div>
+<div class="couple-photo-frame"><img src="assets/couple-portrait.jpg" width="1500" height="2000" alt="Lakhan and Harshita in yellow traditional attire beneath marigold garlands" loading="lazy"></div>
 <figcaption>We can’t wait to celebrate with you.</figcaption>
 </figure>
   <section class="paper-section blessings"><div class="reveal"><div class="eyebrow">With the blessings of our families</div><h2 class="section-title">Two hearts. One forever.</h2><p>With full hearts and the love of our families, we invite you to be a part of our wedding celebration.</p><div class="ornament">✧</div><div class="families"><div class="family"><strong>Harshita’s family</strong><span class="family-parents">Srinivasa Rao Vallamsetty<br>Pavani Vallamsetty</span></div><div class="family"><strong>Lakhan’s family</strong><span class="family-parents">Jeevan Reddy Kamireddy<br>Aparna Kamireddy</span></div></div></div></section>
